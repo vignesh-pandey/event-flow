@@ -1,0 +1,303 @@
+{
+	"info": {
+		"_postman_id": "d86e0635-565e-4a67-ae6d-644fec62e44b",
+		"name": "EventFlow",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28116588"
+	},
+	"item": [
+		{
+			"name": "upload-csv",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "postman-cloud:///1eff2b0a-569e-4080-bdc8-08dc6310b48f"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/upload-csv",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"upload-csv"
+					]
+				},
+				"description": "Generated from cURL: curl --location 'http://localhost:8080/upload-csv' --form 'file=@\"/path/to/Users1.csv\"'"
+			},
+			"response": [
+				{
+					"name": "success response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "postman-cloud:///1eff2b0a-569e-4080-bdc8-08dc6310b48f"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/upload-csv",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"upload-csv"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 24 Feb 2025 13:25:21 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "445"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        [\n            \"8\",\n            \"Hanah\",\n            \"Schmidt\",\n            \"Hanah_Schmidt1965@gmail.edu\",\n            \"1.36122E+12\",\n            \"-1\",\n            \"-1\",\n            \"-1\"\n        ],\n        [\n            \"31\",\n            \"Emily\",\n            \"Tamm\",\n            \"EmilyTamm@gmail.edu\",\n            \"1.36137E+12\",\n            \"-1\",\n            \"-1\",\n            \"-1\"\n        ],\n        [\n            \"13\",\n            \"Grace\",\n            \"Taylor\",\n            \"GraceTaylor1951@inbox.edu\",\n            \"1.36146E+12\",\n            \"-1\",\n            \"1.46385E+12\",\n            \"118437\"\n        ],\n        [\n            \"27\",\n            \"Nish\",\n            \"Murphy\",\n            \"Nish_Murphy@outlook.org\",\n            \"1.36153E+12\",\n            \"-1\",\n            \"-1\",\n            \"-1\"\n        ],\n        [\n            \"10\",\n            \"Sonya\",\n            \"Chen\",\n            \"SonyaChen@outlook.biz\",\n            \"1.36162E+12\",\n            \"-1\",\n            \"1.4873E+12\",\n            \"167616\"\n        ]\n    ],\n    \"status\": \"success\"\n}"
+				}
+			]
+		},
+		{
+			"name": "get users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/users?last_name=Chen&email_address=SonyaChen@outlook.biz",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"users"
+					],
+					"query": [
+						{
+							"key": "last_name",
+							"value": "Chen"
+						},
+						{
+							"key": "email_address",
+							"value": "SonyaChen@outlook.biz"
+						}
+					]
+				},
+				"description": "Generated from cURL: curl --location 'http://localhost:8081/users?first_name=Hanah'"
+			},
+			"response": [
+				{
+					"name": "Using first_name & last_name",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/users?first_name=Grace&last_name=Taylor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "first_name",
+									"value": "Grace"
+								},
+								{
+									"key": "last_name",
+									"value": "Taylor"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 24 Feb 2025 13:25:39 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "193"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"created_at\": \"1.36146E+12\",\n        \"deleted_at\": \"-1\",\n        \"email_address\": \"GraceTaylor1951@inbox.edu\",\n        \"first_name\": \"Grace\",\n        \"id\": 13,\n        \"last_name\": \"Taylor\",\n        \"merged_at\": \"1.46385E+12\",\n        \"parent_user_id\": 118437\n    }\n]"
+				},
+				{
+					"name": "Using email_address",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/users?email_address=EmilyTamm@gmail.edu",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "email_address",
+									"value": "EmilyTamm@gmail.edu"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 24 Feb 2025 13:26:38 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "174"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"created_at\": \"1.36137E+12\",\n        \"deleted_at\": \"-1\",\n        \"email_address\": \"EmilyTamm@gmail.edu\",\n        \"first_name\": \"Emily\",\n        \"id\": 31,\n        \"last_name\": \"Tamm\",\n        \"merged_at\": \"-1\",\n        \"parent_user_id\": null\n    }\n]"
+				},
+				{
+					"name": "Using first_name & email_address",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/users?first_name=Nish&email_address=Nish_Murphy@outlook.org",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "first_name",
+									"value": "Nish"
+								},
+								{
+									"key": "email_address",
+									"value": "Nish_Murphy@outlook.org"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 24 Feb 2025 13:28:41 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "179"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"created_at\": \"1.36153E+12\",\n        \"deleted_at\": \"-1\",\n        \"email_address\": \"Nish_Murphy@outlook.org\",\n        \"first_name\": \"Nish\",\n        \"id\": 27,\n        \"last_name\": \"Murphy\",\n        \"merged_at\": \"-1\",\n        \"parent_user_id\": null\n    }\n]"
+				},
+				{
+					"name": "Using last_name & email_address",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/users?last_name=Chen&email_address=SonyaChen@outlook.biz",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "last_name",
+									"value": "Chen"
+								},
+								{
+									"key": "email_address",
+									"value": "SonyaChen@outlook.biz"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 24 Feb 2025 13:29:24 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "186"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"created_at\": \"1.36162E+12\",\n        \"deleted_at\": \"-1\",\n        \"email_address\": \"SonyaChen@outlook.biz\",\n        \"first_name\": \"Sonya\",\n        \"id\": 10,\n        \"last_name\": \"Chen\",\n        \"merged_at\": \"1.4873E+12\",\n        \"parent_user_id\": 167616\n    }\n]"
+				}
+			]
+		}
+	]
+}

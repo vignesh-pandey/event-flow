@@ -1,0 +1,6 @@
+id,first_name,last_name,email_address,created_at,deleted_at,merged_at,parent_user_id
+8,Hanah,Schmidt,Hanah_Schmidt1965@gmail.edu,1.36122E+12,-1,-1,-1
+31,Emily,Tamm,EmilyTamm@gmail.edu,1.36137E+12,-1,-1,-1
+13,Grace,Taylor,GraceTaylor1951@inbox.edu,1.36146E+12,-1,1.46385E+12,118437
+27,Nish,Murphy,Nish_Murphy@outlook.org,1.36153E+12,-1,-1,-1
+10,Sonya,Chen,SonyaChen@outlook.biz,1.36162E+12,-1,1.4873E+12,167616

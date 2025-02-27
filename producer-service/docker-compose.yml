@@ -1,0 +1,35 @@
+version: "3.8"
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - rabbitmq_network  # ✅ Use shared network
+    healthcheck:
+      test: ["CMD", "rabbitmqctl", "status"]
+      interval: 5s
+      retries: 5
+      timeout: 5s
+
+  producer-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: producer-sevice
+    ports:
+      - "8080:8080"
+    restart: always
+    depends_on:
+      rabbitmq:
+        condition: service_healthy  # ✅ Ensure RabbitMQ is ready before starting
+    environment:
+      - RABBITMQ_URL=amqp://guest:guest@rabbitmq:5672/  # ✅ Correct hostname
+    networks:
+      - rabbitmq_network  # ✅ Use shared network
+
+networks:
+  rabbitmq_network:
+    external: true  # ✅ Use the pre-created external network
